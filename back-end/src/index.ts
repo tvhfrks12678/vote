@@ -20,4 +20,9 @@ app.get('/posts/:id', (c) => {
   return c.text(`You want to see ${page} of ${id}`)
 })
 
+app.post('/posts', (c) => c.text('Created!', 201))
+app.delete('/posts/id', (c)=>
+  c.text(`${c.req.param('id')} is deleted!`)
+)
+
 export default app
