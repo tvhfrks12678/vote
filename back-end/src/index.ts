@@ -25,4 +25,22 @@ app.delete('/posts/id', (c)=>
   c.text(`${c.req.param('id')} is deleted!`)
 )
 
+// const View = () =>{
+//   return (
+//     <html>
+//       <body>
+//         <h1>Hello Hono!</h1>
+//       </body>
+//     </html>
+//   )
+// }
+
+// app.get('/page', (c) => {
+//   return c.html(<View />)
+// })
+
+app.get('/response', () => {
+  return new Response('Good morning!')
+})
+
 export default app
