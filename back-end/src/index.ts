@@ -1,4 +1,5 @@
 import { Hono } from 'hono'
+import { basicAuth } from 'hono/basic-auth'
 
 const app = new Hono()
 
@@ -41,6 +42,18 @@ app.delete('/posts/id', (c)=>
 
 app.get('/response', () => {
   return new Response('Good morning!')
+})
+
+app.use(
+  '/admin/*',
+  basicAuth({
+    username: 'admin',
+    password: 'secret',
+  })
+)
+
+app.get('/admin', (c) => {
+  return c.text('You are authorized!')
 })
 
 export default app
