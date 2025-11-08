@@ -56,4 +56,8 @@ app.get('/admin', (c) => {
   return c.text('You are authorized!')
 })
 
+app.notFound((c) => {
+  return c.text('Custom 404 Message', 404)
+})
+
 export default app
